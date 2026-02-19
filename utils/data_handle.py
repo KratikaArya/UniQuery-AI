@@ -7,6 +7,7 @@ def load_data(filename):
     df["facilities"] = df["facilities"].astype(str)
     df["type"] = df["type"].astype(str)
     df["domain"] = df["domain"].astype(str)
+    df["ranking"] = pd.to_numeric(df["ranking"], errors="coerce")
 
     df["college_name_normalized"] = df["college_name"].str.lower().str.strip()
     df["facilities_normalized"] = df["facilities"].str.lower().str.replace(" ", "", regex=False)
@@ -71,4 +72,17 @@ def answer_query(df, query):
             else:
                 return f"No colleges with {fac.title()} facility found."
 
+    match = re.search(r"top\s+(\d+)", query)
+    if match:
+        top_n = int(match.group(1))
+
+        result = df.dropna(subset=["ranking"]).sort_values("ranking").head(top_n)
+
+        if not result.empty:
+            return result[
+                ["ranking", "college_name", "branch", "fees", "facilities", "type"]
+            ]
+        else:
+            return "Ranking data not available."
+    
     return "Sorry, I couldn’t understand your query."
