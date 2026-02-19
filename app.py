@@ -17,5 +17,4 @@ st.markdown("---")
 st.subheader("🚀 Ready to get started?")
 
 if st.button("Go to Chatbot 💬"):
-    js = "window.location.href = '/1_Chatbot';"
-    st.markdown(f"<script>{js}</script>", unsafe_allow_html=True)
+    st.switch_page("pages/1_Chatbot.py")
