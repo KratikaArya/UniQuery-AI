@@ -37,3 +37,12 @@ Users select a domain, ask questions naturally, and the system interprets the qu
 Outcome
 ---
 UniQuery AI provides a simple and interactive way to explore college information, reducing manual searching while improving accessibility and decision-making.
+
+### Landing Page
+![Landing Page](assets/Screenshot%202025-11-01%20130551.png)
+
+### Chatbot Interaction Interface
+![Chatbot Interaction Interface](assets/Screenshot%202026-02-20%20214137.png)
+
+### Tabular Information Display
+![Tabular Information Display](assets/Screenshot%202025-11-01%20130529.png)
